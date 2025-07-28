@@ -22,3 +22,8 @@ def test_login(driver):
    time.sleep(2)
 
    assert driver.current_url == "https://www.saucedemo.com/inventory.html"
+
+def test_xpath(driver):
+    driver.find_element(By.XPATH,"//input[contains(@class, 'input_error') and contains(@class, 'form_input')]").send_keys("standard_user")
+    # //input[...] 모든 input 태그에서 조건 만족하는 요소를 찾기
+    time.sleep(2)
