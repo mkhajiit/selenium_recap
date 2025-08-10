@@ -13,6 +13,7 @@ def test_login(driver):
 
    time.sleep(2)
 
+   # 로그인 후 로고가 화면에 존재하는지 판단
    assert logo.is_displayed()
 
 def test_xpath(driver):
