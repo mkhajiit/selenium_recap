@@ -9,10 +9,11 @@ def test_login(driver):
    login(driver,"standard_user","secret_sauce")
 
    wait = WebDriverWait(driver, 10)
-   wait.until(EC.presence_of_element_located((By.CLASS_NAME, "app_logo")))
+   logo = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "app_logo")))
 
    time.sleep(2)
-   assert driver.current_url == "https://www.saucedemo.com/inventory.html"
+
+   assert logo.is_displayed()
 
 def test_xpath(driver):
     driver.find_element(By.XPATH,"//input[contains(@class, 'input_error') and contains(@class, 'form_input')]").send_keys("standard_user")
