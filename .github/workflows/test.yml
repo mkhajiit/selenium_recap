@@ -28,6 +28,7 @@ jobs:
           pip install -r requirements.txt
 
       # 4. Selenium 테스트 실행
+      # 특정 디렉토리를 실행시키려면 pytest 뒤에 디렉토리 루트를 넣으면 됨
       - name: Run Selenium tests
         run: |
-          python your_test_file.py # Selenium 테스트 코드가 있는 파일명을 입력하세요
+          pytest
