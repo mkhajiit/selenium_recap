@@ -1,0 +1,33 @@
+name: Selenium E2E Tests
+
+# 어떤 이벤트가 발생했을 때 이 워크플로우를 실행할지 정의합니다.
+on:
+  push:
+    branches: ['main'] # 'main' 브랜치에 코드가 푸시될 때마다 실행
+
+jobs:
+  test:
+    # 워크플로우가 실행될 환경을 지정합니다.
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. GitHub 저장소 체크아웃
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Python 환경 설정 (버전은 프로젝트에 맞게 변경)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.5'
+
+      # 3. 필요한 의존성 설치
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Selenium 테스트 실행
+      - name: Run Selenium tests
+        run: |
+          python your_test_file.py # Selenium 테스트 코드가 있는 파일명을 입력하세요

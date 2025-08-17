@@ -9,7 +9,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 def driver():
   #옵션 설정
   chrome_options = Options()
-  chrome_options.add_argument("--window-size=1920,1080")  
+  chrome_options.add_argument("--window-size=1920,1080")
+  chrome_options.add_argument("--headless")
   chrome_options.add_argument("--guest")  # 게스트 모드로 딤드처리 시키는 비밀번호 팝업 제거
 
   #드라이버 생성
